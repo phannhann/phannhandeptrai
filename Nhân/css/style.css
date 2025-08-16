@@ -1,0 +1,486 @@
+/* 1. Reset và font chữ */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background: #f4f4f4;
+    color: #333;
+}
+
+/* 2. Biến màu sắc chủ đạo */
+:root {
+    --primary-color: #1e90ff;
+    --secondary-color: #ffffff;
+    --glass-bg: rgba(255, 255, 255, 0.15);
+    --glass-border: rgba(255, 255, 255, 0.2);
+}
+
+/* 3. Layout */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* 4. Header với Glassmorphism */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 1rem 0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem; /* nhỏ hơn */
+    font-weight: 550; /* đậm vừa */
+    color: black; /* màu đen */
+    font-family: 'Poppins', sans-serif; /* font chữ đẹp, lạ hơn */
+    letter-spacing: 1px; /* giãn chữ nhẹ */
+    font-style: italic; /* nghiêng chữ */
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+/* 5. Hero Section */
+.hero {
+    padding: 4rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background: #ffffff;
+}
+
+.hero-content {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.hero-text {
+    flex: 1 1 400px;
+}
+
+.hero-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #111;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.btn-cta {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: var(--primary-color);
+    color: #fff;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-cta:hover {
+    background: #0e70d1;
+}
+
+.hero-image {
+    flex: 1 1 300px;
+    display: flex;
+    justify-content: flex-end; /* Đẩy sang phải */
+    align-items: center;
+}
+
+.hero-image img {
+    max-width: 400px; /* Giảm kích thước ảnh */
+    height: auto;
+}
+
+/* 6. Features Section */
+.features {
+    padding: 4rem 0;
+    background: #f9f9f9;
+}
+
+.features h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.features-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.feature-item {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+}
+
+.feature-item img {
+    width: 60px;
+    margin-bottom: 1rem;
+}
+
+/* Gallery Section */
+.gallery-content {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.large-img img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 8px;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-thumbnails {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.gallery-thumbnails img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.gallery-thumbnails img:hover {
+    transform: scale(1.1);
+}
+
+.gallery-thumbnails img.active {
+    border: 2px solid var(--primary-color);
+}
+
+
+/* 8. Footer */
+footer {
+    background: #111;
+    color: #fff;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.social-links a img {
+    width: 40px;
+    height: 40px;
+    margin: 0 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.social-links a:hover img {
+    transform: scale(1.2);
+}
+
+/* 9. Responsive */
+@media (max-width: 1024px) {
+    .features-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+        background: var(--glass-bg);
+        padding: 1rem;
+        border-radius: 8px;
+    }
+
+    .features-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        width: 100%;
+        display: none;
+    }
+
+    nav::before {
+        content: "☰ Menu";
+        font-size: 1.2rem;
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+        cursor: pointer;
+    }
+
+    .features-list {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .btn-cta {
+        width: 100%;
+    }
+}
+/* Hero nhỏ */
+.small-hero {
+    background: #f8f9fa;
+    padding: 40px 0;
+    text-align: center;
+}
+
+/* Bộ lọc */
+.filter-section {
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    padding: 20px 0;
+}
+.filter-form {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.filter-form select, 
+.filter-form button {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+/* Lưới sản phẩm */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin: 40px 0;
+}
+.product-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: transform 0.2s;
+}
+.product-card:hover {
+    transform: translateY(-5px);
+}
+.product-card img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+.price {
+    color: #e60012;
+    font-weight: bold;
+    margin: 10px 0;
+}
+.card-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Nút */
+.btn {
+    padding: 8px 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    font-size: 14px;
+    color: #333;
+}
+.btn:hover {
+    background: #f1f1f1;
+}
+.btn-cta {
+    background: #0072ce;
+    color: #fff;
+    border: none;
+}
+.btn-cta:hover {
+    background: #005fa3;
+}
+
+/* Phân trang */
+.pagination {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.page-btn {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 8px 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    color: #333;
+    text-decoration: none;
+}
+.page-btn.active, .page-btn:hover {
+    background: #0072ce;
+    color: #fff;
+}
+/* Login Page */
+.login-section {
+  padding: 60px 0;
+  background: #f9f9f9;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+.login-container {
+  max-width: 400px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.login-container h2 {
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.login-container p {
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.login-form .form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.form-options a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.signup-text {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.social-login {
+  margin-top: 25px;
+}
+
+.social-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.btn-social {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.btn-social.fb {
+  background: #3b5998;
+}
+
+.btn-social.gg {
+  background: #db4437;
+}

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>emtraibansamsung — Liên hệ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#1e90ff;
+    --bg-grad-1:#0a0a0a;
+    --bg-grad-2:#0f1e2e;
+    --glass: rgba(255,255,255,.06);
+    --glass-border: rgba(255,255,255,.12);
+    --text:#fff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family: 'Roboto', system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+    color: var(--text);
+    background: linear-gradient(135deg, var(--bg-grad-1), var(--bg-grad-2));
+    min-height:100dvh; display:flex; flex-direction:column;
+  }
+  .container{width:90%; max-width:1200px; margin:0 auto;}
+  header{
+    position: sticky; top:0; z-index:50;
+    backdrop-filter: blur(10px);
+    background: rgba(10,10,10,.35);
+    border-bottom:1px solid var(--glass-border);
+  }
+  .header-container{display:flex; align-items:center; justify-content:space-between; padding:14px 0;}
+  .logo{font-family:'Poppins', sans-serif; font-weight:600; font-style:italic; letter-spacing:.5px; color:#000; background:#fff; padding:6px 10px; border-radius:10px}
+  nav ul{list-style:none; display:flex; gap:1.25rem}
+  nav a{color:#ffffff; text-decoration:none; font-weight:500; opacity:.9}
+  nav a:hover{color:var(--primary)}
+  main{flex:1; padding:42px 0 64px}
+
+  /* hero */
+  .page-hero{margin-bottom:28px; text-align:center}
+  .page-hero h1{font-size:clamp(24px,4vw,36px); font-weight:700; letter-spacing:.2px}
+  .page-hero p{opacity:.8; margin-top:8px}
+
+  /* grid */
+  .contact-grid{
+    display:grid; grid-template-columns: 1.2fr .8fr; gap:24px;
+  }
+  .card{
+    background: var(--glass);
+    border:1px solid var(--glass-border);
+    border-radius:16px;
+    padding:22px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 18px 50px rgba(0,0,0,.25);
+  }
+
+  /* form */
+  form .row{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+  form .row + .row{margin-top:12px}
+  label{display:block; font-size:13px; opacity:.9; margin-bottom:6px}
+  input, textarea, select{
+    width:100%; padding:12px 12px;
+    border-radius:10px; border:1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255,255,255,.08);
+    color:#ffffff; outline:none; font-size:15px;
+    transition:.2s;
+  }
+  input::placeholder, textarea::placeholder{color:rgb(255, 255, 255)}
+  input:focus, textarea:focus, select:focus{
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(30,144,255,.15);
+    background: rgba(255,255,255,.12);
+  }
+  textarea{min-height:140px; resize:vertical}
+  .actions{display:flex; gap:12px; align-items:center; margin-top:16px}
+  .btn{
+    appearance:none; border:0; cursor:pointer;
+    padding:12px 18px; border-radius:10px; font-weight:600;
+  }
+  .btn-primary{background:var(--primary); color:#ffffff}
+  .btn-primary:hover{filter:brightness(.95); transform: translateY(-1px)}
+  .btn-ghost{background:transparent; color:#ffffff; border:1px solid rgba(255,255,255,.25)}
+  .btn-ghost:hover{background:rgba(255,255,255,.08)}
+  .hint{font-size:12px; opacity:.75}
+
+  /* info side */
+  .info-list{display:grid; gap:14px; margin-top:10px}
+  .info-item{
+    display:flex; gap:12px; align-items:flex-start;
+    padding:12px; border-radius:12px; background: rgba(255,255,255,.05); border:1px solid var(--glass-border);
+  }
+  .icon{
+    width:36px; height:36px; border-radius:10px;
+    display:grid; place-items:center; background: rgba(30,144,255,.18); border:1px solid rgba(30,144,255,.35)
+  }
+  .info-item b{display:block; margin-bottom:2px}
+  .social{display:flex; gap:10px; margin-top:12px}
+  .social a{
+    width:42px; height:42px; display:grid; place-items:center; border-radius:12px;
+    background: rgba(255,255,255,.06); border:1px solid var(--glass-border);
+    transition:.2s
+  }
+  .social a:hover{transform: translateY(-2px); border-color: rgba(255,255,255,.45)}
+  .map{margin-top:16px; border-radius:14px; overflow:hidden; border:1px solid var(--glass-border)}
+
+  /* toast */
+  .toast{
+    position: fixed; right:18px; bottom:18px; z-index:1000;
+    background:#0f1e2e; color:#ffffff; border:1px solid rgba(255,255,255,.18);
+    padding:12px 14px; border-radius:12px; display:none; box-shadow:0 14px 38px rgba(0,0,0,.4)
+  }
+
+  footer{
+    margin-top:28px; border-top:1px solid var(--glass-border);
+    padding:20px 0; color:#ffffff; text-align:center
+  }
+  .footer-container{display:flex; flex-direction:column; gap:10px; align-items:center}
+  .social-links{display:flex; gap:10px}
+  .social-links a img{width:36px; height:36px; border-radius:10px; object-fit:cover}
+
+  /* responsive */
+  @media (max-width: 900px){
+    .contact-grid{grid-template-columns:1fr; gap:18px}
+  }
+</style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-container">
+      <div class="logo">emtraibansamsung</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Trang chủ</a></li>
+          <li><a href="products.html">Danh mục sản phẩm</a></li>
+          <li><a href="login.html">Đăng nhập</a></li>
+          <li><a href="contact.html">Liên hệ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <section class="page-hero">
+      <h1>Liên hệ emtraibansamsung</h1>
+      <p>Góp ý, bảo hành, báo giá & hỗ trợ nhanh — tụi mình luôn sẵn sàng.</p>
+    </section>
+
+    <!-- Grid -->
+    <section class="contact-grid">
+
+      <!-- Form -->
+      <div class="card">
+        <form id="contactForm" autocomplete="on" novalidate>
+          <div class="row">
+            <div>
+              <label for="fullname">Họ và tên</label>
+              <input id="fullname" name="fullname" type="text" placeholder="Nguyễn Văn A" required>
+            </div>
+            <div>
+              <label for="phone">Số điện thoại</label>
+              <input id="phone" name="phone" type="tel" inputmode="tel" placeholder="09xx xxx xxx" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="emtraibansamsung@gmail.com" required>
+            </div>
+            <div>
+              <label for="topic">Chủ đề</label>
+              <select id="topic" name="topic" required>
+                <option value="">— Chọn chủ đề —</option>
+                <option value="baogia">Báo giá / đặt hàng</option>
+                <option value="baohanh">Bảo hành / kỹ thuật</option>
+                <option value="tragop">Trả góp / thanh toán</option>
+                <option value="khac">Khác</option> 
+                <style>
+    option {
+        color: black; /* đổi màu chữ thành đen */
+    }
+</style>
+              </select>
+            </div>
+          </div>
+
+          <div class="row" style="grid-template-columns:1fr;">
+            <div>
+              <label for="message">Nội dung</label>
+              <textarea id="message" name="message" placeholder="Mô tả nhu cầu của bạn..." required></textarea>
+              <div class="hint">Thời gian phản hồi trung bình: 15–60 phút trong giờ làm việc.</div>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button class="btn btn-primary" type="submit">Gửi liên hệ</button>
+            <button class="btn btn-ghost" type="reset">Xoá nội dung</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Thông tin & Social & Map -->
+      <aside class="card">
+        <div class="info-list">
+          <div class="info-item">
+            <div class="icon">📍</div>
+            <div>
+              <b>Địa chỉ </b>
+              <div>103 Nguyễn Thị Thập, Quận 7, TP.HCM</div>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="icon">☎️</div>
+            <div>
+              <b>Hotline</b>
+              <div>0974114823 (8:00–19:00)</div>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="icon">✉️</div>
+            <div>
+              <b>Email</b>
+              <div>nhanphan10072004@gmail.com</div>
+            </div>
+          </div>
+        </div>
+        <div class="map">
+          <!-- Bạn có thể thay tọa độ/địa chỉ ở q=... -->
+          <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d692.9573823586401!2d106.72299561634628!3d10.73765013876642!3m2!1i1024!2i768!4f13.1!5e0!3m2!1svi!2s!4v1755151602554!5m2!1svi!2s" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-container">
+      <p>&copy; 2025 emtraibansamsung. Bản quyền đã được bảo hộ.</p>
+      <div class="social-links">
+        <!-- Nếu bạn có icon ảnh riêng, thay src bên dưới -->
+        <a href="https://www.facebook.com/phan.nhan.486415" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/500px-Facebook_Logo_%282019%29.png" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com/_phannhan_/" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+        </a>
+        <a href="https://www.youtube.com/@-PhanVoThanhNhan-J" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" alt="YouTube">
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div class="toast" id="toast">✅ Đã gửi liên hệ! Tụi mình sẽ phản hồi sớm nhất.</div>
+
+<script>
+  // Giả lập gửi form + toast xác nhận
+  const form = document.getElementById('contactForm');
+  const toast = document.getElementById('toast');
+
+  form.addEventListener('submit', (e)=>{
+    e.preventDefault();
+
+    // TODO: Thay bằng API thật (Formspree, Google Apps Script, backend của bạn)
+    // Ví dụ Formspree: <form action="https://formspree.io/f/xxxxxx" method="POST">
+
+    toast.style.display = 'block';
+    setTimeout(()=> toast.style.display='none', 3000);
+    form.reset();
+  });
+</script>
+</body>
+</html>

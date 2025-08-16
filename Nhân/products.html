@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Danh mục sản phẩm - emtraibansamsung</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .products-container {
+      display: grid;
+      grid-template-columns: 250px 1fr;
+      gap: 20px;
+      margin: 30px auto;
+      max-width: 1200px;
+    }
+    .filter-box {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .filter-box h3 { margin-bottom: 10px; }
+    .filter-group { margin-bottom: 20px; }
+    .filter-group label { display: block; margin: 6px 0; }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .product-card {
+      background: #fff;
+      padding: 15px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+    .product-card:hover { transform: translateY(-5px); }
+    .product-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+    .product-name { font-weight: 600; margin-bottom: 5px; }
+    .product-price { color: #e63946; font-weight: bold; }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 600px;
+      width: 90%;
+      position: relative;
+      animation: fadeIn 0.3s ease;
+    }
+    .modal img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    .modal h2 { margin-bottom: 10px; }
+    .modal p { margin: 5px 0; }
+    .close-btn {
+      position: absolute;
+      top: 10px; right: 15px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #333;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: scale(0.9);}
+      to {opacity: 1; transform: scale(1);}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-container">
+      <div class="logo">emtraibansamsung</div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Trang chủ</a></li>
+          <li><a href="products.html" class="active">Danh mục sản phẩm</a></li>
+          <li><a href="login.html">Đăng nhập</a></li>
+          <li><a href="register.html">Đăng ký</a></li>
+          <li><a href="contact.html">Liên hệ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Danh mục sản phẩm -->
+  <main>
+    <div class="products-container">
+      
+      <!-- Bộ lọc -->
+      <aside class="filter-box">
+        <h3>Bộ lọc sản phẩm</h3>
+
+        <div class="filter-group">
+          <h4>Danh mục</h4>
+          <label><input type="checkbox" class="filter" data-filter="phone"> Điện thoại</label>
+          <label><input type="checkbox" class="filter" data-filter="tablet"> Tablet</label>
+          <label><input type="checkbox" class="filter" data-filter="accessory"> Phụ kiện</label>
+        </div>
+
+        <div class="filter-group">
+          <h4>Giá</h4>
+          <label><input type="checkbox" class="filter" data-filter="under5"> Dưới 5 triệu</label>
+          <label><input type="checkbox" class="filter" data-filter="5to20"> 5 - 20 triệu</label>
+          <label><input type="checkbox" class="filter" data-filter="above20"> Trên 20 triệu</label>
+        </div>
+
+        <div class="filter-group">
+          <h4>Thương hiệu</h4>
+          <label><input type="checkbox" class="filter" data-filter="samsungzflip"> Samsung Z Flip</label>
+          <label><input type="checkbox" class="filter" data-filter="samsungzfold"> Samsung Z Fold</label>
+          <label><input type="checkbox" class="filter" data-filter="samsungs25ultra"> Samsung S25 Ultra</label>
+        </div>
+
+        <div class="filter-group">
+          <h4>Tình trạng</h4>
+          <label><input type="checkbox" class="filter" data-filter="instock"> Còn hàng</label>
+          <label><input type="checkbox" class="filter" data-filter="outstock"> Hết hàng</label>
+        </div>
+
+      </aside>
+
+      <!-- Sản phẩm -->
+      <section class="products-grid">
+        <div class="product-card" 
+             data-category="phone" data-price="5to20" data-brand="samsungzflip" data-stock="instock"
+             data-chip="Exynos 2400 10 nhân" data-ram="GB" data-storage="GB" 
+             data-camera-sau="Chính 50 MP & Phụ 12 MP" data-camera-truoc="MP" data-pin="4000mAh">
+          <img src="https://cdn.tgdd.vn/Products/Images/42/338741/samsung-galaxy-z-flip7-fe-white-thumb-600x600.jpg" alt="Điện thoại Samsung Galaxy Z Flip7 FE 5G 8GB/128GB">
+          <div class="product-name">Điện thoại Samsung Galaxy Z Flip7 FE 5G 8GB/128GB</div>
+          <div class="product-price">18.990.000₫</div>
+        </div>
+
+        <div class="product-card" 
+             data-category="phone" data-price="above20" data-brand="samsungzfold" data-stock="instock"
+             data-chip="Qualcomm Snapdragon 8 Elite For Galaxy 8 nhân" data-ram="GB" data-storage="256GB"
+             data-camera-sau=" Chính 200 MP & Phụ 12 MP, 10 MP" data-camera-truoc="Trong 10 MP & Ngoài 10 MP" data-pin="4400mAh">
+          <img src="https://cdn.tgdd.vn/Products/Images/42/338738/samsung-galaxy-z-fold7-black-thumb-1-600x600.jpg" alt="Điện thoại Samsung Galaxy Z Fold7 5G 12GB/256GB">
+          <div class="product-name">Điện thoại Samsung Galaxy Z Fold7 5G 12GB/256GB</div>
+          <div class="product-price">44.990.000₫</div>
+        </div>
+
+        <div class="product-card" 
+             data-category="phone" data-price="above20" data-brand="samsungs25ultra" data-stock="instock"
+             data-chip="Qualcomm Snapdragon 8 Elite For Galaxy 8 nhân" data-ram="GB" data-storage="256GB"
+             data-camera-sau=" Chính 200 MP & Phụ 50 MP, 50 MP, 10 MP" data-camera-truoc="12MP" data-pin="5000mAh">
+          <img src="https://cdn.tgdd.vn/Products/Images/42/333347/TimerThumb/samsung-galaxy-s25-ultra-(80).jpg" alt="Điện thoại Samsung Galaxy S25 Ultra 5G 12GB/256GB">
+          <div class="product-name">Điện thoại Samsung Galaxy S25 Ultra 5G 12GB/256GB</div>
+          <div class="product-price">26.880.000₫</div>
+        </div>
+
+        <div class="product-card" 
+             data-category="tablet" data-price="5to20"  data-stock="outstock"
+             data-chip="Exynos 1580 8 nhân" data-ram="8GB" data-storage="128GB" 
+             data-camera-sau="13 MP" data-camera-truoc="12 MP" data-pin="8000mAh">
+          <img src="https://cdn.tgdd.vn/Products/Images/522/336738/samsung-galaxy-tab-s10-fe-blue-thumb-600x600.jpg" alt="Máy tính bảng Samsung Galaxy Tab S10 FE 5G 8GB/128GB">
+          <div class="product-name">Máy tính bảng Samsung Galaxy Tab S10 FE 5G 8GB/128GB</div>
+          <div class="product-price">13.590.000₫</div>
+        </div>
+
+                <div class="product-card" 
+             data-category="tablet" data-price="5to20"  data-stock="instock"
+             data-chip="Exynos 1580 8 nhân" data-ram="8GB" data-storage="128GB" 
+             data-camera-sau="13 MP" data-camera-truoc="12 MP" data-pin="10090mAh">
+          <img src="https://cdn.tgdd.vn/Products/Images/522/336740/samsung-galaxy-tab-s10-fe-plus-gray-thumb-600x600.jpg" alt="Máy tính bảng Samsung Galaxy Tab S10 FE+ WiFi 8GB/128GB">
+          <div class="product-name">Máy tính bảng Samsung Galaxy Tab S10 FE+ WiFi 8GB/128GB</div>
+          <div class="product-price">12.810.000₫</div>
+        </div>
+
+                <div class="product-card" 
+             data-category="tablet" data-price="5to20"  data-stock="instock"
+             data-chip="Exynos 1580 8 nhân" data-ram="8GB" data-storage="128GB" 
+             data-camera-sau="13 MP" data-camera-truoc="12 MP" data-pin="8000mAh">
+          <img src="https://cdn.tgdd.vn/Products/Images/522/336737/samsung-galaxy-tab-s10-fe-silver-thumb-600x600.jpg" alt="Máy tính bảng Samsung Galaxy Tab S10 FE 5G 8GB/128GB">
+          <div class="product-name">Samsung Galaxy Tab S10 FE WiFi 8GB/128GB</div>
+          <div class="product-price">10.590.000₫</div>
+        </div>
+
+                        <div class="product-card" 
+             data-category="accessory" data-price="under5"  data-stock="instock"
+             data-chip="Không hỗ trợ" data-ram="Không hỗ trợ" data-storage="Không hỗ trợ" 
+             data-camera-sau="Không hỗ trợ" data-camera-truoc="Không hỗ trợ" data-pin="Dùng 30h">
+          <img src="https://cdn.tgdd.vn/Products/Images/54/327554/tai-nghe-bluetooth-true-wireless-samsung-galaxy-buds-3-pro-r630n-100724-082455-600x600-1-600x600.jpg" alt="Tai nghe TWS Samsung Galaxy Buds3 Pro R630N">
+          <div class="product-name">Tai nghe TWS Samsung Galaxy Buds3 Pro R630N</div>
+          <div class="product-price">10.590.000₫</div>
+        </div>
+
+                        <div class="product-card" 
+             data-category="accessory" data-price="under5"  data-stock="instock"
+             data-chip="Không hỗ trợ" data-ram="Không hỗ trợ" data-storage="Không hỗ trợ" 
+             data-camera-sau="Không hỗ trợ" data-camera-truoc="Không hỗ trợ" data-pin="Dùng 30h">
+          <img src="https://cdn.tgdd.vn/Products/Images/54/316448/tai-nghe-bluetooth-true-wireless-samsung-galaxy-buds-fe-r400n-290224-051438-600x600.jpg" alt="Tai nghe TWS Samsung Galaxy Buds FE R400N">
+          <div class="product-name">Tai nghe TWS Samsung Galaxy Buds FE R400N</div>
+          <div class="product-price">1.150.000₫</div>
+        </div>
+  </main>
+
+  <!-- Modal chi tiết -->
+  <div class="modal" id="productModal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <img id="modalImage" src="" alt="">
+      <h2 id="modalName"></h2>
+      <p><strong>Giá:</strong> <span id="modalPrice"></span></p>
+      <p><strong>Chip:</strong> <span id="modalChip"></span></p>
+      <p><strong>RAM:</strong> <span id="modalRAM"></span></p>
+      <p><strong>Dung lượng:</strong> <span id="modalStorage"></span></p>
+      <p><strong>Camera sau:</strong> <span id="modalCamSau"></span></p>
+      <p><strong>Camera trước:</strong> <span id="modalCamTruoc"></span></p>
+      <p><strong>Pin:</strong> <span id="modalPin"></span></p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+    <footer id="contact">
+        <div class="container footer-container">
+            <p>&copy; 2025 emtraibansamsung. Bản quyền đã được bảo hộ.</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/phan.nhan.486415"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/500px-Facebook_Logo_%282019%29.png" alt="Facebook"></a>
+                <a href="https://www.instagram.com/_phannhan_/"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"></a>
+                <a href="https://www.youtube.com/@-PhanVoThanhNhan-J"><img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" alt="YouTube"></a>
+            </div>
+        </div>
+    </footer>
+  <!-- Script -->
+  <script>
+    const filters = document.querySelectorAll('.filter');
+    const products = document.querySelectorAll('.product-card');
+
+    // Lọc sản phẩm
+    filters.forEach(filter => {
+      filter.addEventListener('change', () => {
+        let activeFilters = [];
+        filters.forEach(f => {
+          if (f.checked) activeFilters.push(f.dataset.filter);
+        });
+
+        products.forEach(product => {
+          let show = true;
+          activeFilters.forEach(f => {
+            if (!(
+              product.dataset.category === f ||
+              product.dataset.price === f ||
+              product.dataset.brand === f ||
+              product.dataset.stock === f
+            )) {
+              show = false;
+            }
+          });
+          product.style.display = show ? 'block' : 'none';
+        });
+      });
+    });
+
+    // Modal chi tiết
+    const modal = document.getElementById('productModal');
+    const closeBtn = document.querySelector('.close-btn');
+
+    products.forEach(product => {
+      product.addEventListener('click', () => {
+        document.getElementById('modalImage').src = product.querySelector('img').src;
+        document.getElementById('modalName').textContent = product.querySelector('.product-name').textContent;
+        document.getElementById('modalPrice').textContent = product.querySelector('.product-price').textContent;
+        document.getElementById('modalChip').textContent = product.dataset.chip;
+        document.getElementById('modalRAM').textContent = product.dataset.ram;
+        document.getElementById('modalStorage').textContent = product.dataset.storage;
+        document.getElementById('modalCamSau').textContent = product.dataset.cameraSau;
+        document.getElementById('modalCamTruoc').textContent = product.dataset.cameraTruoc;
+        document.getElementById('modalPin').textContent = product.dataset.pin;
+
+        modal.style.display = 'flex';
+      });
+    });
+
+    closeBtn.addEventListener('click', () => modal.style.display = 'none');
+    window.addEventListener('click', e => { if (e.target === modal) modal.style.display = 'none'; });
+  </script>
+</body>
+</html>
