@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ - Em trai bán Samsung</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <header>
+        <div class="container header-container">
+            <div class="logo">emtraibansamsung</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="products.html">Danh mục sản phẩm</a></li>
+                    <li><a href="login.html">Đăng nhập</a></li>
+                    <li><a href="contact.html">Liên hệ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1>Gập Mở Đỉnh Cao – Trải Nghiệm Vượt Chuẩn</h1>
+                    <p>Bước vào kỷ nguyên mới cùng Galaxy Z Fold7 – màn hình gập linh hoạt, hiệu năng bứt phá, trải nghiệm đa nhiệm mượt mà.</p>
+                    <a href="#" class="btn-cta">Mua Ngay</a>
+                </div>
+                <div class="hero-image">
+                    <img src="https://cdn.webcool.vn/azmobile.net/files/product/2025/07/12/68723c4ae0230.jpg" alt="Galaxy Z Fold7 màn hình gập">
+                </div>
+            </div>
+        </section>
+
+        <section class="features" id="features">
+            <div class="container">
+                <h2>Tính Năng Nổi Bật</h2>
+                <div class="features-list">
+                    <div class="feature-item">
+                        <img src="https://i.pinimg.com/736x/b0/f7/a5/b0f7a5d2de2002e640308f28396c0597.jpg" alt="Âm thanh">
+                        <h3>Âm thanh giải trí</h3>
+                        <p>Phù hợp cho người thích xem phim, nghe nhạc.</p>
+                    </div>
+                    <div class="feature-item">
+                        <img src="https://png.pngtree.com/png-vector/20190307/ourlarge/pngtree-vector-full-battery-icon-png-image_762950.jpg" alt="Pin 4400mAh">
+                        <h3>Pin lên đến 4400mAh</h3>
+                        <p>Thoải mái sử dụng mà không lo hết pin.</p>
+                    </div>
+                    <div class="feature-item">
+                        <img src="https://png.pngtree.com/png-clipart/20220729/original/pngtree-black-camera-photography-icon-logo-png-image_8426782.png" alt="Camera">
+                        <h3>Camera đa năng</h3>
+                        <p>Hệ thống 3 camera sau 50MP + 12MP + 10MP chụp ảnh, quay video sắc nét.</p>
+                    </div>
+                    <div class="feature-item">
+                        <img src="https://i.pinimg.com/736x/cd/d1/00/cdd1001dae6de897fab412e6c5e38e27.jpg" alt="5g">
+                        <h3>Kết nối 5G siêu tốc</h3>
+                        <p>Lướt web, tải phim, chơi game trực tuyến mượt mà.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container footer-container">
+            <p>&copy; 2025 emtraibansamsung. Bản quyền đã được bảo hộ.</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/phan.nhan.486415"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/500px-Facebook_Logo_%282019%29.png" alt="Facebook"></a>
+                <a href="https://www.instagram.com/_phannhan_/"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"></a>
+                <a href="https://www.youtube.com/@-PhanVoThanhNhan-J"><img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" alt="YouTube"></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
